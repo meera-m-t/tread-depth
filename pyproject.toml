@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tread-depth"
+version = "0.1.0"
+description = "Tread-groove depth from a single panning video via visible-wall goniometry"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8",
+    "scipy>=1.10",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+viz = ["matplotlib>=3.7"]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+tread-depth = "tread_depth.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
